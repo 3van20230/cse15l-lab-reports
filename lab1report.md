@@ -63,7 +63,7 @@ cat
 Example with a path
 ```
 cat lectuer1/messages
-``
+```
 
 Example with a path to a file
 ```
