@@ -22,7 +22,7 @@ Working Directory: can write in any directory, changes the working directory to 
 Example with a path to a file:
 ```
 cd lectuer1/messages/es-mx.txt
-...
+```
 input output:
 ```
 [user@sahara ~]$ cd lectuer1/messages/es-mx.txt
