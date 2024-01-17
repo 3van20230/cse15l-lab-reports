@@ -43,14 +43,33 @@ Example with no arguments:
 ```
 ls
 ```
+input output:
+```
+[user@sahara ~]$ ls
+lecture1
+```
+Working Directory: Lists the contents of the current directory.
 Example with a path:
 ```
-ls lectuer1/messages
+ls lecture1/messages
 ```
+input output:
+```
+[user@sahara ~]$ ls lecture1/messages
+en-us.txt  es-ar.txt  es-mx.txt  zh-cn.txt
+```
+Working Directory:  Lists the contents of the messages directory within the workspace.
+
 Example with a path to a file:
 ```
 ls lecture1/messages/es-ar.txt
 ```
+input output:
+```
+[user@sahara ~]$ ls lecture1/messages/es-ar.txt
+lecture1/messages/es-ar.txt
+```
+Working Directory: Results in an error because you cannot list the contents of a file. 
 
 
 
@@ -59,14 +78,31 @@ Example with no arguments:
 ```
 cat
 ```
-
+input output:
+```
+[user@sahara ~]$ cat
+```
+Working Directory: Waits for input from the user. 
 Example with a path
 ```
-cat lectuer1/messages
+cat lecture1/messages
 ```
+input output:
+```
+[user@sahara ~]$ cat lecture1/messages
+cat: lecture1/messages: Is a directory
+```
+Working Directory: Results in an error since you cannot concatenate the contents of a directory.
+
 
 Example with a path to a file
 ```
-cat lectuer1/messages/es-ar.txt
+cat lecture1/messages/es-ar.txt
 ```
-I am talking about `cat`
+input output:
+```
+[user@sahara ~]$ cat lecture1/messages/es-ar.txt
+¡Hola Mundo!
+```
+Working Directory: Displays the contents of es-ar.txt located in the messages directory within the workspace.
+
