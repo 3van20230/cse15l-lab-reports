@@ -41,7 +41,8 @@ class ChatServer {
 
 ```
 ![Screenshot 2024-01-30 173549](https://github.com/3van20230/cse15l-lab-reports/assets/156235233/1bf1efae-5ad2-4460-8462-709360208d5a)
-![Screenshot 2024-01-20 195348](https://github.com/3van20230/cse15l-lab-reports/assets/156235233/51aaff3f-877a-4554-8172-51b5ba98d9fc)
+![Screenshot 2024-01-30 173619](https://github.com/3van20230/cse15l-lab-reports/assets/156235233/3254b4e4-2edb-4a5a-b38a-a9b805e41f1a)
+
 
 
 
