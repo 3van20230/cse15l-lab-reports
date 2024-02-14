@@ -4,15 +4,29 @@ import java.io.IOException;
 import java.net.URI;
 
 class Handler implements URLHandler {
-    // The one bit of state on the server: a number that will be manipulated by
-    // various requests.
     private static StringBuilder chatMessages = new StringBuilder();
 
     @Override
     public String handleRequest(URI url) {
         if (url.getPath().equals("/add-message")) {
-            String user = url.getQuery().split("&")[1].split("=")[1];
-            String message = url.getQuery().split("&")[0].split("=")[1];
+            String query = url.getQuery();
+            String user = null;
+            String message = null;
+            if (query != null) {
+                String[] params = query.split("&");
+                for (String param : params) {
+                    String[] keyValue = param.split("=");
+                    if (keyValue.length == 2) {
+                        String key = keyValue[0];
+                        String value = keyValue[1];
+                        if (key.equals("user")) {
+                            user = value;
+                        } else if (key.equals("message")) {
+                            message = value;
+                        }
+                    }
+                }
+            }
             addMessage(user, message);
             return chatMessages.toString();
         }
@@ -41,14 +55,14 @@ class ChatServer {
 
 ```
 ![Screenshot 2024-01-30 173549](https://github.com/3van20230/cse15l-lab-reports/assets/156235233/1bf1efae-5ad2-4460-8462-709360208d5a)
-1. HandleRequest are called in the method. 
+1. HandleRequest is called in the method, call `Handler` `URLHandler` 
 2. It get the request or the message that we type and it update to the chatMessages. 
 3. The value change since we type the message after add-messgaes, and it change the value on chatMessages. 
 
 ![Screenshot 2024-01-30 173619](https://github.com/3van20230/cse15l-lab-reports/assets/156235233/3254b4e4-2edb-4a5a-b38a-a9b805e41f1a)
-1. Addmessage are called in the method. 
+1. HandleRequest is called in the method. It checks if the path of the URL is "/add-message"
 2. It help the method to append new message to chatMessages. 
-3. The value change after we type in `/add-message?s=How are you&user=yash` it print out the user first which is yash: then add-message to chatMessages 'How are you'.
+3. The value change after we type in `/add-message?s=How are you&user=yash` it print out the user first which is yash: then add-message to chatMessages 'How are you'. If the path match `/add-message` it extracts the query parameters form the URL
 
 Part 2
 ![Screenshot 2024-01-30 181704](https://github.com/3van20230/cse15l-lab-reports/assets/156235233/cc6eb742-ddf7-4f69-ad52-c91ec21d74c7)
